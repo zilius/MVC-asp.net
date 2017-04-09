@@ -1,0 +1,52 @@
+﻿@model WebApp_BA_TASK.Models.Models.User
+@{
+    ViewBag.Title = "GetUsers";
+    var users = ViewData["users"] as IList<WebApp_BA_TASK.Models.Models.User>;
+}
+<html>
+<head>
+    <title>GetUsers</title>
+
+</head>
+<body>
+    <h2>Users</h2>
+    <div class="container">
+        <table class="dataTable" cellpadding="0" border="0" id="example">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Name</th>
+                    <th>Password</th>
+                    <th>Date of Birth</th>
+                    <th>Additional Info</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in users)
+            {
+                    <tr>
+                        <td>@user.Email</td>
+                        <td>@user.Name</td>
+                        <td>@user.Password</td>
+                        <td>@user.BirthDate</td>
+                        <td>@user.AdditionalInfo</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <script>
+        //$(document).ready(function () {
+        //    window.alert("realiai");
+        //})
+
+        $(document).ready(function () {
+            $('#example').dataTable({ "sPaginationType": "full_numbers" });
+        });
+    </script>
+</body>
+</html>
+    
+
+
+
